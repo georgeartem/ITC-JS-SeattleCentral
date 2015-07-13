@@ -1,0 +1,55 @@
+
+<html>
+<head>
+    <script type = "text/javascript">
+        function timeOfDay()
+        {
+            var myDate = new Date();
+
+            var myHour = myDate.getHours();
+            var myColor = "";
+            var myMessage = "";
+
+            if ( myHour >= 5 && myHour <= 11)
+            {
+            myMessage = 'You have reached this site in the morning';
+            myColor = 'yellow';
+			document.getElementById("myImage").innerHTML='<img src="morningimage.jpg" alt="morning">';
+            }
+            else if (myHour >= 12 && myHour <=17)
+            {
+            myMessage = 'You have reached this site in the afternoon';
+            myColor = 'green';
+			document.getElementById("myImage").innerHTML = '<img src="afternoonimage.png" alt="afternoon">';
+            }
+			else if (myHour >= 18 && myHour <=22)
+			{
+			myMessage = 'You have reached this site in the evening';
+			myColor = 'red';
+			document.getElementById("myImage").innerHTML = '<img src="eveningimage.png" alt="evening">';
+			}
+			else
+			{
+			myMessage = 'You have reached this site at night';
+			myColor ='blue';
+			document.getElementById("myImage").innerHTML = '<img src="nightimage.jpg" alt="night">';
+			}
+			
+        document.bgColor = myColor;
+        document.getElementById("myMessage").innerHTML = myMessage;		
+        }
+    </script>
+	
+<style>
+
+</style>
+</head>
+<body onLoad = timeOfDay();>
+
+<div id="myDiv">
+<p id="myMessage"></p>
+</div>
+<div id="myImage">
+</div>
+</body>
+</html>
