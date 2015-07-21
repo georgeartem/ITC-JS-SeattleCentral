@@ -1,0 +1,79 @@
+<html>
+<head>
+<script type="text/javascript">
+
+function myBrowser()
+{
+var agent = navigator.userAgent;
+agent = agent.toLowerCase();
+var myFFBrowser = 'firefox';
+var myIEBrowser = '.net';
+var myCHBrowser = 'chrome';
+var mySFBrowser = 'safari';
+
+
+    if(agent.lastIndexOf(myFFBrowser) != -1)
+    {
+        myBrowser = 'firefox';
+        //alert("hi");
+    }
+    
+    else if(agent.lastIndexOf(myIEBrowser) != -1)
+    {
+        myBrowser = '.net';
+    }
+    
+    else if(agent.lastIndexOf(myCHBrowser) != -1)
+    {
+        myBrowser = 'chrome';
+    }
+    
+    else if(agent.lastIndexOf(mySFBrowser) != -1)
+    {
+        myBrowser = 'safari';
+    }
+    
+    else
+    {
+        myBrowser = 'unknown';
+    }
+
+
+switch (myBrowser) {
+    case '.net':
+        myColor = "red";
+        myImage = "http://img1.wikia.nocookie.net/__cb20121221232621/logopedia/images/d/d0/IE6.png";
+        myMessage = "You're using Internet Explorer";
+        break;
+    case 'firefox':
+        myColor = "orange";
+        myImage = "https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Firefox-logo.svg/1072px-Firefox-logo.svg.png";
+        myMessage = "You're using Firefox";
+        break;
+    case 'chrome':
+        myColor = "yellow";
+        myImage = "http://img3.wikia.nocookie.net/__cb20120330024137/logopedia/images/d/d7/Google_Chrome_logo_2011.svg";
+        myMessage = "You're using chrome";
+        break;
+    case 'safari':
+        myColor = "blue";
+        myImage = "http://img1.wikia.nocookie.net/__cb20150324131003/logopedia/images/c/c8/54538251_c82f8f92e6.jpg";
+        myMessage = "You're using safari";
+        break;
+}
+
+alert(myBrowser);
+document.bgColor = myColor;
+document.getElementById("picture").src = myImage;
+document.getElementById("paragraph").innerHTML = myMessage;
+}
+
+</script>
+</head>
+<body onload="myBrowser()">
+<div id="background">
+<img id="picture">
+<p id="paragraph"></p>
+</div>
+</body>
+</html>
