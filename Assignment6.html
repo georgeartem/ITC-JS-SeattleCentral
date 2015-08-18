@@ -1,0 +1,293 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript">
+
+	</script> 
+	<script type="text/javascript">
+	
+$('document').ready(function(){
+	$('#maindishForm').hide();
+	$('#sidedishForm').hide();
+	$('#drinkForm').hide();
+	$('#dessertForm').hide();
+});
+	
+	
+	$('#maindishButton').click(function(){
+	<!-- validate Appetizers checkbox form -->
+		var checkedCount = 0;
+		if ($(‘#appetizerone’).is(‘:checked’)){
+		checkedCount ++;
+		};
+		if ($(‘#appetizertwo’).is(‘:checked’)){
+		checkedCount ++;
+		};
+		if ($(‘#appetizerthree’).is(‘:checked’)){
+		checkedCount ++;
+		};
+		if ($(‘#appetizerfour’).is(‘:checked’)){
+		checkedCount ++;
+		};
+		if ($(‘#appetizerfive’).is(‘:checked’)){
+		checkedCount ++;
+		};
+		if ($(‘#appetizersix’).is(‘:checked’)){
+		checkedCount ++;
+		};
+		return checkedCount;
+		if(checkedCount == 0 ){
+		alert('Please select between one and three appetizers!');
+		document.getElementById("appetizersForm").focus();
+		};
+		if(checkedCount > 3) {
+		alert('Please select only one to three appetizers!');
+		document.getElementById("appetizersForm").focus();
+		};
+		else {
+		$('#maindishForm').show('slow');
+		$('#appetizersForm').hide('slow');
+		};
+		});
+			
+	$('#sidedishButton').click(function(){
+	
+		if(document.getElementById("maindropdown").value == "")
+			{
+				alert("Please select a Main Course"); // prompt user
+				document.getElementById("maindishForm").focus(); //set focus back to control
+			}
+
+		else {
+			$('#sidedishForm').show('slow');
+			$('#maindishForm').hide('slow');
+			}
+			});
+		
+	$('#drinkButton').click(function(){
+		<!-- validate Sidedish checkboxes here -->
+		var checkedCountSide = 0;
+		if ($(‘#sideone’).is(‘:checked’)){
+		checkedCountSide ++;
+		};
+		if ($(‘#sidetwo’).is(‘:checked’)){
+		checkedCountSide ++;
+		};
+		if ($(‘#sidethree’).is(‘:checked’)){
+		checkedCountSide ++;
+		};
+		return checkedCountSide;
+		if (checkedCountSide == 0){
+		alert('Please select more than one Side Dish!');
+		document.getElementById("sidedishForm").focus();
+		};
+		else{
+			$('#drinkForm').show('slow');
+			$('#sidedishForm').hide('slow');
+			};
+		});
+	
+	$('#dessertButton').click(function(){
+	
+		if(document.getElementById("drinkdropdown").value == "")
+			{
+				alert("Please select something to Drink"); // prompt user
+				document.getElementById("drinkForm").focus(); //set focus back to control
+			}
+		else{
+			$('#dessertForm').show('slow');
+			$('#drinkForm').hide('slow');
+			}
+			});
+	
+	function submitForm(){
+	$('#submitButton').click(function(){
+		if(document.getElementById("dessertdropdown").value =="")
+		{
+			alert("Please select a Dessert!");
+			document.getElementById("dessertform").focus();	
+		}
+		});	
+	}
+	</script>
+	<style>
+	
+* {padding: 0; margin: 0;}
+	header{
+	height:100px;
+	background:#5681BF;
+	}
+
+aside{
+width:340px;
+background:#BCC0A9;
+float: right;
+}
+
+#main{
+width: 580px;
+background: #F4E7E1;
+float: left;
+}
+
+#menu{
+width: 540px;
+background: white;
+float: left;
+}
+	</style>
+</head>
+<body>
+<header>
+<h1>WELCOME TO J. R. R. TOLKEIN's LUNCH LABORATORY</h1>
+</header>
+<div id='main'>
+<h1><strong>MENU</strong></h1>
+<br/>
+<div id='menu'>
+<h2 id="appetizers">APPETIZERS</h2>
+<ul>
+<li>Hobbit Feet</li>
+<li>Dwarf Beard</li>
+<li>Golem Fish</li>
+<li>Elf Ears</li>
+<li>Gandalf's Toenails</li>
+<li>Ogre Soup</li>
+</ul>
+<br/>
+
+<h2 id="maincourse">MAIN COURSE</h2>
+<ul>
+<li>Giant Spider Leg</li>
+<li>Living Tree Limb</li>
+<li>Turkey Legs</li>
+<li>Full Golem</li>
+<li>El-bit-warf</li>
+</ul>
+<br/>
+
+<h2 id="side">SIDES</h2>
+<ul>
+<li>French Fries</li>
+<li>Ogre Soup</li>
+<li>Coleslaw</li>
+</ul>
+<br/>
+
+<h2 id="beverage">BEVERAGE</h2>
+<ul>
+<li>Mead</li>
+<li>Honey Mead</li>
+<li>Bitter Potion</li>
+<li>CocaCola</li>
+<li>Pepsi</li>
+</ul>
+<br/>
+
+<h2 id="dessert">DESSERT</h2>
+<ul>
+<li>The Ring</li>
+<li>Elf Souffle</li>
+<li>Stubbornness of Dwarf</li>
+</ul>
+<br/>
+
+</div> <!-- close menu -->
+</div> <!-- close main -->
+<aside>
+<form name="menuOptions" onsubmit="submitForm()" action="http://www.newmanic.com/formtest.asp" method="post">
+
+<div id="appetizersForm">
+<label><strong>SELECT SOME APPETIZERS</strong></label>
+<!-- build validation for at least one but no more than two -->
+<br/>
+<input type="checkbox" id="appetizerone" value="Hobbit Feet">
+<label>Hobbit Feet</label>
+<br/>
+<input type="checkbox" id="appetizertwo" value="Dwarf Beard">
+<label>Dwarf Beard</label>
+<br/>
+<input type="checkbox" id="appetizerthree" value="Golem Fish">
+<label>Golem Fish</label>
+<br/>
+<input type="checkbox" id="appetizerfour" value="Elf Ears">
+<label>Elf Ears</label>
+<br/>
+<input type="checkbox" id="appetizerfive" value="Gandalf's Toenails">
+<label>Gandalf's Toenails</label>
+<br/>
+<input type="checkbox" id="appetizersix" value="Ogre Soup">
+<label>Ogre Soup</label>
+<br/>
+<input type="button" value="Next" id="maindishButton"/>
+<br/>
+</div>
+
+<div id="maindishForm">
+<label><strong>SELECT A MAIN DISH</strong></label>
+<!-- must select one -->
+<select id="maindropdown">
+<option></option>
+<option>Giant Spider Leg</option>
+<option>Living Tree Limb</option>
+<option>Turkey Legs</option>
+<option>Full Golem</option>
+<option>El-bit-warf</option>
+</select>
+<br/>
+<br/>
+<input type="button" value="Next" id="sidedishButton" onclick="checkMain()"/>
+<br/>
+</div>
+
+<div id="sidedishForm">
+<label><strong>ADD SOME SIDES</strong></label>
+<!-- must select at least one but no more than three -->
+<br/>
+<input type="checkbox" name="sidedish" value="French Fries">
+<label>French Fries </label>
+<br/>
+<input type="checkbox" name="sidedish" value="Ogre Soup">
+<label>Ogre Soup</label>
+<br/>
+<input type="checkbox" name="sidedish" value="Coleslaw">
+<label>Coleslaw</label>
+<br/>
+<br/>
+<input type="button" value="Next" id="drinkButton" onclick="checkSide()"/>
+<br/>
+</div>
+<div id="drinkForm">
+<label><strong>DRINK?</strong></label>
+<select id="drinkdropdown">
+<option></option>
+<option>Mead</option>
+<option>Honey Mead</option>
+<option>Bitter Potion</option>
+<option>CocaCola</option>
+<option>Pepsi</option>
+</select>
+<br/>
+<br/>
+<input type="button" value="Next" id="dessertButton" onclick="checkDrink()"/>
+<br/>
+</div>
+<div id="dessertForm">
+<label><strong>DESSERT</strong></label>
+<select id="dessertdropdown">
+<option></option>
+<option>The Ring</option>
+<option>Elf Souffle</option>
+<option>Stubbornness of Dwarf</option>
+</select>
+<br/>
+</div>
+
+<br/>
+<br/>
+<label><i> Only Click Submit once you've selected a Dessert! </i> </label>
+<input id="submitButton" type="submit" name="submit" value="SUBMIT">
+</form>
+
+</aside>
+</body>
+</html>
