@@ -10,47 +10,39 @@ $('document').ready(function(){
 	$('#sidedishForm').hide();
 	$('#drinkForm').hide();
 	$('#dessertForm').hide();
-});
-	
 	
 	$('#maindishButton').click(function(){
 	<!-- validate Appetizers checkbox form -->
 		var checkedCount = 0;
-		if ($(‘#appetizerone’).is(‘:checked’)){
+		if ($('#appetizerone').is(':checked')){
 		checkedCount ++;
-		};
-		if ($(‘#appetizertwo’).is(‘:checked’)){
+		}
+		if ($('#appetizertwo').is(':checked')){
 		checkedCount ++;
-		};
-		if ($(‘#appetizerthree’).is(‘:checked’)){
+		}
+		if ($('#appetizerthree').is(':checked')){
 		checkedCount ++;
-		};
-		if ($(‘#appetizerfour’).is(‘:checked’)){
+		}
+		if ($('#appetizerfour').is(':checked')){
 		checkedCount ++;
-		};
-		if ($(‘#appetizerfive’).is(‘:checked’)){
+		}
+		if ($('#appetizerfive').is(':checked')){
 		checkedCount ++;
-		};
-		if ($(‘#appetizersix’).is(‘:checked’)){
+		}
+		if ($('#appetizersix').is(':checked')){
 		checkedCount ++;
-		};
-		return checkedCount;
-		if(checkedCount == 0 ){
+		}
+		if((checkedCount < 1) || (checkedCount > 3)){
 		alert('Please select between one and three appetizers!');
 		document.getElementById("appetizersForm").focus();
-		};
-		if(checkedCount > 3) {
-		alert('Please select only one to three appetizers!');
-		document.getElementById("appetizersForm").focus();
-		};
+		}
 		else {
 		$('#maindishForm').show('slow');
 		$('#appetizersForm').hide('slow');
 		};
 		});
 			
-	$('#sidedishButton').click(function(){
-	
+	$('#sidedishButton').click(function(){	
 		if(document.getElementById("maindropdown").value == "")
 			{
 				alert("Please select a Main Course"); // prompt user
@@ -66,20 +58,19 @@ $('document').ready(function(){
 	$('#drinkButton').click(function(){
 		<!-- validate Sidedish checkboxes here -->
 		var checkedCountSide = 0;
-		if ($(‘#sideone’).is(‘:checked’)){
+		if ($('#sideone').is(':checked')){
 		checkedCountSide ++;
-		};
-		if ($(‘#sidetwo’).is(‘:checked’)){
+		}
+		if ($('#sidetwo').is(':checked')){
 		checkedCountSide ++;
-		};
-		if ($(‘#sidethree’).is(‘:checked’)){
+		}
+		if ($('#sidethree').is(':checked')){
 		checkedCountSide ++;
-		};
-		return checkedCountSide;
-		if (checkedCountSide == 0){
-		alert('Please select more than one Side Dish!');
+		}
+		if (checkedCountSide < 1){
+		alert('Please select at least one Side Dish!');
 		document.getElementById("sidedishForm").focus();
-		};
+		}
 		else{
 			$('#drinkForm').show('slow');
 			$('#sidedishForm').hide('slow');
@@ -98,8 +89,7 @@ $('document').ready(function(){
 			$('#drinkForm').hide('slow');
 			}
 			});
-	
-	function submitForm(){
+
 	$('#submitButton').click(function(){
 		if(document.getElementById("dessertdropdown").value =="")
 		{
@@ -107,7 +97,8 @@ $('document').ready(function(){
 			document.getElementById("dessertform").focus();	
 		}
 		});	
-	}
+
+	});
 	</script>
 	<style>
 	
@@ -243,13 +234,13 @@ float: left;
 <label><strong>ADD SOME SIDES</strong></label>
 <!-- must select at least one but no more than three -->
 <br/>
-<input type="checkbox" name="sidedish" value="French Fries">
+<input type="checkbox" id="sideone" value="French Fries">
 <label>French Fries </label>
 <br/>
-<input type="checkbox" name="sidedish" value="Ogre Soup">
+<input type="checkbox" id="sidetwo" value="Ogre Soup">
 <label>Ogre Soup</label>
 <br/>
-<input type="checkbox" name="sidedish" value="Coleslaw">
+<input type="checkbox" id="sidethree" value="Coleslaw">
 <label>Coleslaw</label>
 <br/>
 <br/>
